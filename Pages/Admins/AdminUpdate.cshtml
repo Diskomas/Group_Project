@@ -1,0 +1,39 @@
+﻿@page
+@model Group_Project.Pages.Admins.AdminUpdateModel
+@{
+}
+
+<div class="container">
+
+    <h1 class="text-center pt-2 text-secondary">ADMIN  @Model.AdminRecords.AdminUserName.ToUpper() UPDATE</h1>
+
+    <form method="post">
+
+        <div class="form-group text-center">
+            <label asp-for="AdminRecords.AdminID" class="control-label"></label>
+            @Model.AdminRecords.AdminID
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AdminRecords.AdminUserName" class="control-label"></label>
+            <input type="text" asp-for="AdminRecords.AdminUserName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AdminRecords.AdminEmail" class="control-label"></label>
+            <input type="text" asp-for="AdminRecords.AdminEmail" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AdminRecords.AdminPassword" class="control-label"></label>
+            <input type="text" asp-for="AdminRecords.AdminPassword" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" asp-for="AdminRecords.AdminID" />
+            <input type="submit" vlue="Update" class="btn btn-danger" />
+            <a class="btn btn-primary" asp-page="/Admins/AdminView">Cancel</a>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,120 @@
+﻿@page
+@model Group_Project.Pages.Admins.AdminViewModel
+@{
+}
+
+
+<div class="container">
+
+    <h1 class="text-center py-2 text-secondary">WELCOME "ADMIN NAME"</h1>
+
+    <div class="py-3">
+
+        <h3 class="text-center py-2 text-secondary">Admin Information</h3>
+
+        <table class="table table-active">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdminRecord[0].AdminID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdminRecord[0].AdminUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdminRecord[0].AdminEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AdminRecord[0].AdminPassword)
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+
+                    <continue!>
+
+                </tr>
+            </thead>
+
+
+            @for (int i = 0; i < Model.AdminRecord.Count; i++)
+            {
+                <tr>
+                    <td>@Model.AdminRecord[i].AdminID</td>
+
+                    <td>@Model.AdminRecord[i].AdminUserName</td>
+
+                    <td>@Model.AdminRecord[i].AdminEmail</td>
+
+                    <td>@Model.AdminRecord[i].AdminPassword</td>
+
+                    <td>
+                        <a asp-page="/Admins/AdminUpdate" asp-route-id="@Model.AdminRecord[i].AdminID">Update</a>
+                        <a class="disabled" aria-disabled="true">|</a>
+                        <a asp-page="/Admins/AdminDelete" asp-route-id="@Model.AdminRecord[i].AdminID">Delete</a>
+                    </td>
+
+                    <continue!>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <h3 class="text-center py-2 text-secondary">User Information</h3>
+
+    <table class="table table-active">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserRecord[0].MemberID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserRecord[0].UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserRecord[0].UserEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserRecord[0].UserCard)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserRecord[0].UserPassword)
+                </th>
+                <th>
+                    Actions
+                </th>
+
+
+                <continue!>
+
+            </tr>
+        </thead>
+
+
+        @for (int i = 0; i < Model.UserRecord.Count; i++)
+        {
+            <tr>
+                <td>@Model.UserRecord[i].MemberID</td>
+
+                <td>@Model.UserRecord[i].UserName</td>
+
+                <td>@Model.UserRecord[i].UserEmail</td>
+
+                <td>@Model.UserRecord[i].UserCard</td>
+
+                <td>@Model.UserRecord[i].UserPassword</td>
+
+                <td>
+                    <a asp-page="/Admins/UserUpdate" asp-route-id="@Model.UserRecord[i].MemberID">Update</a>
+                    <a class="disabled" aria-disabled="true">|</a>
+                    <a asp-page="/Admins/UserDelete" asp-route-id="@Model.UserRecord[i].MemberID">Delete</a>
+                </td>
+
+                <continue!>
+            </tr>
+        }
+    </table>
+
+    <h3 class="text-center py-2 text-secondary">Services Information</h3>
+
+</div>

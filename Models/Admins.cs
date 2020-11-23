@@ -8,6 +8,7 @@ namespace Group_Project.Models
 {
     public class Admins
     {
+        [Display(Name = "Admin ID")]
         public int AdminID { get; set; } //Unique ID
 
         [Required]

@@ -1,0 +1,48 @@
+﻿@page
+@model Group_Project.Pages.Admins.UserUpdateModel
+@{
+}
+
+
+
+
+<div class="container">
+
+    <h1 class="text-center pt-2 text-secondary">USER  @Model.UserRecords.UserName.ToUpper() UPDATE</h1>
+
+    <form method="post">
+    
+        <div class="form-group text-center">
+            <label asp-for="UserRecords.MemberID"></label>
+            <span> : </span>
+            @Model.UserRecords.MemberID
+        </div>
+    
+        <div class="form-group">
+            <label asp-for="UserRecords.UserName" class="control-label"></label>
+            <input type="text" asp-for="UserRecords.UserName" class="form-control" />
+        </div>
+    
+        <div class="form-group">
+            <label asp-for="UserRecords.UserEmail" class="control-label"></label>
+            <input type="text" asp-for="UserRecords.UserEmail" class="form-control" />
+        </div>
+    
+        <div class="form-group">
+            <label asp-for="UserRecords.UserCard" class="control-label"></label>
+            <input type="text" asp-for="UserRecords.UserCard" class="form-control" />
+        </div>
+    
+        <div class="form-group">
+            <label asp-for="UserRecords.UserPassword" class="control-label"></label>
+            <input type="text" asp-for="UserRecords.UserPassword" class="form-control" />
+        </div>
+    
+        <div class="form-group">
+            <input type="hidden" asp-for="UserRecords.MemberID" />
+            <input type="submit" vlue="Update" class="btn btn-danger" />
+            <a class="btn btn-primary" asp-page="/Admins/AdminView">Cancel</a>
+        </div>
+    </form>
+
+</div>

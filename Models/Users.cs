@@ -8,7 +8,7 @@ namespace Group_Project.Models
 {
     public class Users
     {
-
+        [Display(Name = "Member ID")]
         public int MemberID { get; set; } //Unique ID
 
         [Required]

@@ -1,0 +1,48 @@
+﻿@page
+@model Group_Project.Pages.Admins.UserDeleteModel
+@{
+}
+
+
+<div class="container">
+    <h1 class="text-center pt-2 text-secondary">USER  @Model.UserRecord.UserName.ToUpper() RECORD DELETE</h1>
+    <h3 class="text-center pt-2 text-danger">Are you sure want to delete @Model.UserRecord.UserName's record?</h3>
+
+    <div class="table-active">
+
+        <div>
+            <label asp-for="UserRecord.MemberID"></label>
+            <span> : </span>
+            @Model.UserRecord.MemberID
+        </div>
+        <div>
+            <label asp-for="UserRecord.UserName"></label>
+            <span> : </span>
+            @Model.UserRecord.UserName
+        </div>
+        <div>
+            <label asp-for="UserRecord.UserEmail"></label>
+            <span> : </span>
+            @Model.UserRecord.UserEmail
+        </div>
+        <div>
+            <label asp-for="UserRecord.UserCard"></label>
+            <span> : </span>
+            @Model.UserRecord.UserCard
+        </div>
+        <div>
+            <label asp-for="UserRecord.UserPassword"></label>
+            <span> : </span>
+            @Model.UserRecord.UserPassword
+        </div>
+    </div>
+    <br />
+    <div>
+        <form method="post">
+            <input type="hidden" asp-for="UserRecord.MemberID" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a class="btn btn-primary" asp-page="/Admins/AdminView" >Cancel</a>
+        </form>
+    </div>
+
+</div>
