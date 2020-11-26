@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\Membership\" />
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 
   <ItemGroup>
