@@ -16,8 +16,8 @@ namespace Group_Project.Pages.Admins
 
         public void OnGet()
         {
-
-            string DbConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\disko\OneDrive\1. Sheffiled Hallam University\Databases and Web\web\Assignment\Group\Group_Project_Assignment\Databases\Database.mdf;Integrated Security=True";
+            DatabaseConnection.Database_Connection dbstring = new DatabaseConnection.Database_Connection();
+            string DbConnection = dbstring.DatabaseString();
 
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
