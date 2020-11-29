@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Membership\" />
+    <Compile Remove="Pages\Membership\**" />
+    <Content Remove="Pages\Membership\**" />
+    <EmbeddedResource Remove="Pages\Membership\**" />
+    <None Remove="Pages\Membership\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 

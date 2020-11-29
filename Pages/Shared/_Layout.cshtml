@@ -30,28 +30,43 @@
                     <div class="User_Informaiton ">
                         <img src="https://www.bemyguestcastelldefels.com/images/user.png" alt="" style="height: 25px" /> <! -- We must use the web to load the picture because the picture won't load on all pages-->
                     </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/#">Playlist</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/#">Playlists</a>
+                                <a class="dropdown-item" asp-page="/Services/Memberships">Memberships</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Support">Support</a>
+                    </ul>
+
+                    <ul class="navbar-nav ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Help</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-page="/Support">Support</a>
+                                <a class="dropdown-item" asp-page="/Contact">Contact us</a>
+                                <a class="dropdown-item" asp-page="/Privacy">Privacy</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/UploadFile/UploadFile">UploadFile</a>
+                    </ul>
+
+                    <ul class="navbar-nav ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Other</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-page="/UploadFile/UploadFile">UploadFile</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">|</a>
                         </li>
-
                     </ul>
-
 
                 </div>
 

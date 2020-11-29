@@ -1,6 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
+﻿
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -68,4 +66,106 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.center-custom {
+    color: white;
+    text-align: left;
+    font-size: 18px;
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.homepagebg {
+    background: url(./Images/index_background.jpg);
+    height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.comment-background {
+    background: url(./Images/index_background_comment.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#particles-js {
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 99%;
+}
+
+.welcome-text {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.comment-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.first-text {
+    letter-spacing: 8px;
+    position: relative;
+    animation: text 5s 1;
+}
+
+.second-text {
+    font-size: 30px;
+    animation: text-bottom 5s 1;
+}
+
+@keyframes text {
+    0% {
+        color: transparent;
+        margin-bottom: 10px;
+    }
+
+    30% {
+        letter-spacing: 25px;
+        margin-bottom: 30px;
+    }
+
+    85% {
+        letter-spacing: 8px;
+    }
+}
+
+@keyframes text-bottom {
+    0% {
+        color: transparent;
+    }
+
+    60% {
+    }
 }

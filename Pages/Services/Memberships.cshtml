@@ -1,0 +1,188 @@
+﻿@page
+@model Group_Project.Pages.Services.MembershipsModel
+@{
+}
+
+
+<style>
+    #particles-js {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 99%;
+    }
+    .center-custom {
+        color: black;
+        text-align: left;
+        display: flex;
+        height: 40px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+    }
+    .homepagebg {
+        background: url(../Images/index_background.jpg);
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .welcome-text {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .title-text {
+        letter-spacing: 8px;
+        position: relative;
+        animation: text 5s 1;
+    }
+    @@keyframes text {
+        0% {
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        30% {
+            letter-spacing: 25px;
+            margin-bottom: 30px;
+        }
+
+        85% {
+            letter-spacing: 8px;
+        }
+    }
+
+</style>
+
+<div class="text-center">
+    <div class="homepagebg">
+        <div id="particles-js"></div>
+        <div class="col welcome-text">
+            <span class="display-1 title-text">MEMBERSHIPS</span>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/particles.min.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+</div>
+
+<br />
+
+<div class="text-center">
+    <h2 class="" style="font-weight: bold; padding-top:50px">Pick your membership</h2>
+    <p>Listen without limits on your phone, speaker, and other devices.</p>
+</div>
+
+<br />
+
+<div class="container">
+    <div class="card-deck">
+        <div class="card">
+            <div style="padding-left: 10px">
+                <br />
+                <p class="btn btn-primary" style="font-weight:bold">3 months free</p>
+                <h5>Free</h5>
+                no payment required
+                <p>1 account</p>
+                <hr />
+            </div>
+            <div class="card-body">
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>2 popular playlists</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>24h music service</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/192/548/small/x.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>Listen to music ad-free</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/192/548/small/x.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>Unlimited skips</p>
+                        </div>
+                    </div>
+                </div>
+                <a type="button" class="btn btn-outline-success btn-lg btn-block" href="#">
+                        <div class="spinner-border text-success" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                Register</a>
+                <p style="font-size: 10px">3 months free available for users who haven't already tried Premium. Terms and conditions apply.</p>
+            </div>
+            
+        </div>
+
+        <div class="card">
+            <div style="padding-left: 10px">
+                <br />
+                <p class="btn btn-primary" style="font-weight:bold">7 days free</p>
+                <h5>Individual</h5>
+                £8.99/month after offer period
+                <p>1 account</p>
+                <hr />
+            </div>
+            <div class="card-body">
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>All available playlists</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>Play anywhere - even offline</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>Listen to music ad-free</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-custom">
+                    <div class="media">
+                        <img src="https://www.freeiconspng.com/thumbs/checkmark-png/black-checkmark-png-4.png" class="mr-3" alt="..." style="height: 25px">
+                        <div>
+                            <p>On-demand playback</p>
+                        </div>
+                    </div>
+                </div>
+                <a type="button" class="btn btn-outline-success btn-lg btn-block" href="#">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                Register</a>
+                <p style="font-size: 10px">Terms and conditions apply. 7 days free not available for users who have already tried Premium.</p>
+            </div>
+        </div>
+    </div>
+</div>
