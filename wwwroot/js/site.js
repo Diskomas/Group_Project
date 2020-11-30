@@ -10,5 +10,5 @@ function readURL(input) {
         document.getElementById("Img").setAttribute("src", e.target.result);
     };
     reader.readAsDataURL(input.files[0]);
-}
+}   
 
