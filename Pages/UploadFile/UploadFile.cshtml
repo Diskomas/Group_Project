@@ -2,19 +2,21 @@
 @model Group_Project.Pages.UploadFile.UploadFileModel
 @{
 }
-
-
-
-
 <h1>Upload Files Page</h1>
 <br />
 
-<div>
+<div class="col-md-4">
     <form method="post" enctype="multipart/form-data">
 
         <div>
             <label>Select an image file to upload</label>
-            <input type="file" asp-for="StdFile" onchange="readURL(this)" accept="image/*" />
+            <input type="file" asp-for="MembFile" onchange="readURL(this)" accept="image/*" />
+        </div>
+        <br />
+
+        <div>
+            <label>@Html.DisplayNameFor(model => model.MemberRec.MemberName)</label>
+            <input type="text" asp-for="MemberRec.MemberName" class="form-control" />
         </div>
         <br />
         <div>
@@ -25,7 +27,5 @@
 
 <br />
 <div>
-    <img id="Img" src="" alt="User Picture" style="width: 200px;" />
+    <img id="Img" src="" alt="Member Picture" style="width: 200px;" />
 </div>
-
-

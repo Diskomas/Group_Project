@@ -1,0 +1,24 @@
+﻿@page
+@model Group_Project.Pages.Members.MemberPages.PremiumIndexModel
+@{
+}
+<h1>:: Premium Main Page ::</h1>
+<br />
+<h2> Welcome @Model.MemberName</h2>
+
+<br />
+<div class="row">
+
+    <div class="col-sm-2">
+        <p><a asp-page="/Admins/AdminPages/AdminView">View all Admins and Users</a></p>
+    </div>
+
+    <div class="col-sm-2">
+        <p><a asp-page="/Admins/AdminPages/AdminDelete">Delete an Admin</a></p>
+    </div>
+
+    <div class="col-sm-2">
+        <p><a asp-page="/Logout/Logout">Logout</a></p>
+    </div>
+
+</div>

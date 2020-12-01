@@ -1,0 +1,33 @@
+﻿@page
+@model Group_Project.Pages.Admins.Login.LoginModel
+@{
+}
+<h1>:: Admin Login Page ::</h1>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="text" asp-for="Admin.AdminEmail" class="form-control" />
+                <span asp-validation-for="Admin.AdminEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Admin.AdminPassword" class="control-label">Password</label>
+                <input asp-for="Admin.AdminPassword" type="password" class="form-control" />
+                <span asp-validation-for="Admin.AdminPassword" class="text-danger"></span>
+            </div>
+
+            <div>
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+        <div>
+            <p style="color: red">@Model.Message</p>
+        </div>
+    </div>
+</div>
