@@ -29,10 +29,9 @@ namespace Group_Project.Models
 
         [Required]
         [Display(Name = "Membership")]
-        public string MembershipId { get; set; } // Free | Basic  £3.99 | Full £8.99 | *Only one can be selected*
+        public int MembershipId { get; set; } // Free | Full £8.99 | *Only one can be selected*
 
                                                // Free - 1-2 Playlists 
-                                               // Basic - 3-5 Playlists
                                                // Full - all available playlists
 
 

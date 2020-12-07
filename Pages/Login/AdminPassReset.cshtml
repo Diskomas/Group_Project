@@ -1,0 +1,91 @@
+﻿@page
+@model Group_Project.Pages.Login.AdminPassResetModel
+@{
+}
+
+<style>
+
+    .homepagebg {
+        background: url(../Images/index_background.jpg);
+        height: 800px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .about-container {
+        width: 280px;
+        height: 270px;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        position: relative;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .admin-text {
+        font-size: 20px;
+        animation: text-bottom 5s 1;
+        padding: 13px;
+    }
+
+    .Admin-bottom-text {
+        font-size: 10px;
+        padding: 10px;
+        float: right;
+    }
+</style>
+
+
+<div class="text-center">
+    <div class="homepagebg">
+
+        <div class="col welcome-text">
+
+            <img src="../Images/Login_people.png" alt="..." style="height: 40px; padding-bottom: 5px">
+
+            <div class="about-container">
+
+                <div class="admin-text">PASSWORD RESET</div>
+
+
+
+
+
+
+                <form method="post" class="row" style="padding-left: 20px; padding-right: 20px">
+
+                    <div style="width: 100%; position: relative; justify-content: space-evenly; align-items: center">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">@@</div>
+                            </div>
+                            <input type="text" asp-for="Admin.AdminEmail" class="form-control" placeholder="Email Address">
+                        </div>
+                        <input type="text" asp-for="Admin.AdminReset" class="form-control mb-2 mr-sm-2" placeholder="Unique Reset variable">
+
+                        <input type="text" asp-for="Admin.AdminPassword" class="form-control mb-2 mr-sm-2" placeholder="New password">
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-light btn-lg btn-block">Reset</button>
+
+                </form>
+
+
+
+
+
+                <div>
+                    <p style="color: white">@Model.Message</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

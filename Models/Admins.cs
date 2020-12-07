@@ -23,5 +23,8 @@ namespace Group_Project.Models
         [Display(Name = "Password")]
         public string AdminPassword { get; set; } // For login 
 
+        [Required]
+        [Display(Name = "Unique Password reset number")]
+        public string AdminReset { get; set; }
     }
 }

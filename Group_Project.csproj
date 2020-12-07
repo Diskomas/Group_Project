@@ -6,13 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Pages\Membership\**" />
+    <Compile Remove="wwwroot\Files\**" />
     <Content Remove="Pages\Membership\**" />
+    <Content Remove="wwwroot\Files\**" />
     <EmbeddedResource Remove="Pages\Membership\**" />
+    <EmbeddedResource Remove="wwwroot\Files\**" />
     <None Remove="Pages\Membership\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\Files\" />
+    <None Remove="wwwroot\Files\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,321 @@
+﻿@page
+@model Group_Project.Pages.Users.FreeModel
+@{
+}
+
+
+
+
+<style>
+    .homepagebg {
+        background: url(../Images/Free_Page_header.jpg);
+        height: 1000px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .House_background {
+        background: url(../Images/abstract_FreeP_1.jpg);
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .Mood-Booster_background {
+        background: url(../Images/abstract_FreeP_2.jpg);
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #particles-js {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 99%;
+    }
+
+    .welcome-text {
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 5px 5px 10px rgba(0,0,0,0.9);
+    }
+    .music-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 2% 5% 2% 5%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    ::selection {
+        color: #fff;
+        background: #1cc7d0;
+    }
+
+    .wrapper {
+        height: 400px;
+        width: 320px;
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+
+    .wrapper .card {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        background: #fff;
+        border-radius: 10px;
+        transform: translateY(0deg);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+        transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+    }
+    
+    .wrapper:hover > .front-face {
+        transform: rotateY(-180deg);
+    }
+    
+    .wrapper .card img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    .wrapper .back-face {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        transform: rotateY(180deg);
+    }
+
+    .wrapper:hover > .back-face {
+        transform: rotateY(0deg);
+    }
+
+    .wrapper .back-face img {
+        height: 150px;
+        width: 150px;
+        padding: 5px;
+        border-radius: 50%;
+        background: linear-gradient(375deg, #ff5700, #de7f2e);
+    }
+
+    .wrapper .back-face .info {
+        text-align: center;
+    }
+
+    .back-face .info .title {
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .playlist_title {
+        color: white;
+        letter-spacing: 8px;
+        position: relative;
+        animation: text 5s 1;
+        text-shadow: 5px 5px 20px rgba(0,0,0,0.15);
+    }
+
+    @@media(max-width:1000px) {
+        .playlist_title {
+            font-size: 60px;
+            transition: 1s;
+        }
+    }
+
+    @@media(max-width:750px) {
+        .playlist_title {
+            font-size: 40px;
+            transition: 1s;
+        }
+    }
+</style>
+
+
+
+
+<div class="text-center">
+    <div class="homepagebg"></div>
+</div>
+
+<hr />
+
+<div class="music-container House_background">
+
+    <div style="width: 100%; text-align: center">
+        <span class="display-1 playlist_title">HOUSE PLAYLIST</span>
+    </div>
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/House/Chaya-Nevermind_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/House/Chaya-Nevermind_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    Nevermind
+                </div>
+                <p>
+                    by <br>Chaya
+                </p>
+                <audio src="~/Music/House/Chaya-Nevermind.mp3" controls></audio>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/House/onroad_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/House/onroad_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    On road
+                </div>
+                <p>
+                    by <br>Radistai Dj's
+                </p>
+                <audio src="~/Music/House/onroad.mp3" controls></audio>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/House/good-kinda-bad_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/House/good-kinda-bad_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    Good Kinda Bad
+                </div>
+                <p>
+                    by <br>Greg Jela
+                </p>
+                <audio src="~/Music/House/good-kinda-bad.mp3" controls></audio>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/House/what-is-house_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/House/what-is-house_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    What is house
+                </div>
+                <p>
+                    by <br>Callipo
+                </p>
+                <audio src="~/Music/House/what-is-house.mp3" controls></audio>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<div class="music-container Mood-Booster_background">
+
+    <div style="width: 100%; text-align: center">
+        <span class="display-1 playlist_title">MOOD BOOSTER</span>
+    </div>
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/Mood-booster/BTS-Dynamite_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/Mood-booster/BTS-Dynamite_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    Dynamite
+                </div>
+                <p>
+                    by <br>BTS
+                </p>
+                <audio src="~/Music/Mood-booster/BTS-Dynamite.mp3" controls></audio>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/Mood-booster/MAX-Blueberry-Eyes_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/Mood-booster/MAX-Blueberry-Eyes_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    Blueberry Eyes
+                </div>
+                <p>
+                    by <br>MAX
+                </p>
+                <audio src="~/Music/Mood-booster/MAX-Blueberry-Eyes.mp3" controls></audio>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="card front-face">
+            <img src="../Music/Mood-booster/NOEPxCHINCHILLA-OnMyWay_cover.jpg">
+        </div>
+        <div class="card back-face">
+            <img src="../Music/Mood-booster/NOEPxCHINCHILLA-OnMyWay_cover.jpg">
+            <div class="info">
+                <div class="title">
+                    On My Way
+                </div>
+                <p>
+                    by <br>NOEP x CHINCHILLA
+                </p>
+                <audio src="~/Music/Mood-booster/NOEPxCHINCHILLA-OnMyWay.mp3" controls></audio>
+            </div>
+        </div>
+    </div>
+
+</div>

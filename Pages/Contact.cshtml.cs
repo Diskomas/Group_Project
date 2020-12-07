@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Group_Project.Pages
 {
-    public class ContactModel : PageModel
+    public class ContactsModel : PageModel
     {
         public void OnGet()
         {

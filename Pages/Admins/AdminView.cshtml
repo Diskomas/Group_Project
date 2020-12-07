@@ -3,17 +3,88 @@
 @{
 }
 
+<style>
+    .homepagebg {
+        background: url(../Images/index_background.jpg);
+        height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    #particles-js {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 99%;
+    }
+    .welcome-text {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .title-text {
+        letter-spacing: 8px;
+        position: relative;
+        animation: text 5s 1;
+    }
+
+    @@keyframes text {
+        0% {
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        30% {
+            letter-spacing: 25px;
+            margin-bottom: 30px;
+        }
+
+        85% {
+            letter-spacing: 8px;
+        }
+    }
+</style>
+
+<div class="text-center">
+    <div class="homepagebg">
+        <div id="particles-js"></div>
+        <div class="col welcome-text">
+            <span class="display-1 title-text">WELCOME @Model.LoginAdminusername.ToUpper()</span>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/particles.min.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+</div>
 
 <div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                <button type="button" class="btn btn-outline-dark">Create Admin</button>
+            </th>
+            <th>
+                <button type="button" class="btn btn-outline-dark">Create User</button>
+            </th>
+            <th>
+                <button type="button" class="btn btn-outline-dark">More</button>
+            </th>
+        </tr>
+    </table>
+</div>
 
-    <h1 class="text-center py-2 text-secondary">WELCOME "ADMIN NAME"</h1>
+<div class="container">
 
     <div class="py-3">
 
         <h3 class="text-center py-2 text-secondary">Admin Information</h3>
 
-        <table class="table table-active">
-            <thead>
+        <table class="table ">
+            <thead class="thead-dark">
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.AdminRecord[0].AdminID)
@@ -62,8 +133,8 @@
 
     <h3 class="text-center py-2 text-secondary">User Information</h3>
 
-    <table class="table table-active">
-        <thead>
+    <table class="table ">
+        <thead class="thead-dark">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.UserRecord[0].MemberID)
