@@ -62,19 +62,23 @@
 </div>
 
 <div class="container">
-    <table class="table">
+
+    <h3 class="text-center py-2 text-secondary">Additional features</h3>
+
+    <table class="table text-center">
         <tr>
             <th>
-                <button type="button" class="btn btn-outline-dark">Create Admin</button>
+                <a type="button" class="btn btn-outline-dark" href="/admins/createadmin">Create Admin</a>
             </th>
             <th>
-                <button type="button" class="btn btn-outline-dark">Create User</button>
+                <a type="button" class="btn btn-outline-dark" href="/users/CreateUser">Create User</a>
             </th>
             <th>
-                <button type="button" class="btn btn-outline-dark">More</button>
+                <a type="button" class="btn btn-outline-dark" href="/admins/CreateMembership">Add membership</a>
             </th>
         </tr>
     </table>
+    <hr />
 </div>
 
 <div class="container">
@@ -83,7 +87,20 @@
 
         <h3 class="text-center py-2 text-secondary">Admin Information</h3>
 
-        <table class="table ">
+        <div>
+            <form>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Search for admin:</label>
+                    <div class="col-sm-8">
+                        <input typeof="text" asp-for="SearchAdminRecord" class="form-control" placeholder="Username">
+                    </div>
+
+                    <input type="submit" value="Search" />
+                </div>
+            </form>
+        </div>
+
+        <table class="table text-center">
             <thead class="thead-dark">
                 <tr>
                     <th>
@@ -133,7 +150,23 @@
 
     <h3 class="text-center py-2 text-secondary">User Information</h3>
 
-    <table class="table ">
+    <div>
+        <form>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Search for user:</label>
+                <div class="col-sm-8">
+                    <input typeof="text" asp-for="SearcUserRecord" class="form-control" placeholder="Username">
+                </div>
+
+                <input type="submit" value="Search" />
+            </div>
+
+
+
+        </form>
+    </div>
+
+    <table class="table text-center">
         <thead class="thead-dark">
             <tr>
                 <th>
@@ -150,6 +183,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.UserRecord[0].UserPassword)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserRecord[0].MembershipId)
                 </th>
                 <th>
                     Actions
@@ -175,6 +211,20 @@
 
                 <td>@Model.UserRecord[i].UserPassword</td>
 
+                
+                <td>@if(Model.UserRecord[i].MembershipId == 1)
+                {
+                    <p>Basic</p>
+                }
+                else if (Model.UserRecord[i].MembershipId == 2)
+                {
+                    <p>Premium</p>
+                }
+                else
+                {
+                    @Model.UserRecord[i].MembershipId
+                }</td>
+
                 <td>
                     <a asp-page="/Admins/UserUpdate" asp-route-id="@Model.UserRecord[i].MemberID">Update</a>
                     <a class="disabled" aria-disabled="true">|</a>
@@ -187,5 +237,68 @@
     </table>
 
     <h3 class="text-center py-2 text-secondary">Services Information</h3>
+
+    <div>
+        <form>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Select Membership ID:</label>
+                <div class="col-sm-3">
+                    <select typeof="text" asp-for="Membershipnumber" style="width: 50px">
+                        <option>All</option>
+                        @foreach (var item in Model.MembershipnumberItems)
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
+
+                    <input type="submit" value="Filter" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <table class="table text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberRecord[0].MembershipID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberRecord[0].MembershipName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MemberRecord[0].MembershipPrice)
+                </th>
+                <th>
+                    Actions
+                </th>
+
+
+                <continue!>
+
+            </tr>
+        </thead>
+
+
+        @for (int i = 0; i < Model.MemberRecord.Count; i++)
+        {
+            <tr>
+                <td>@Model.MemberRecord[i].MembershipID</td>
+
+                <td>@Model.MemberRecord[i].MembershipName</td>
+
+                <td>@Model.MemberRecord[i].MembershipPrice</td>
+
+                <td>
+                    <a asp-page="/Admins/MembershipUpdate" asp-route-id="@Model.MemberRecord[i].MembershipID">Update</a>
+                    <a class="disabled" aria-disabled="true">|</a>
+                    <a asp-page="/Admins/MembershipDelete" asp-route-id="@Model.MemberRecord[i].MembershipID">Delete</a>
+                </td>
+
+                <continue!>
+            </tr>
+        }
+    </table>
 
 </div>

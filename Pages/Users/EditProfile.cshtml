@@ -1,0 +1,339 @@
+﻿@page
+@model Group_Project.Pages.Users.EditProfileModel
+@{
+}
+<style>
+
+    .Profile_header {
+        width: 100%;
+        height: 100%;
+        background: url(../Images/Profile_Background_transparent.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .profile_background {
+        background: url(../Images/index_background.jpg);
+        background-size: 100%;
+        opacity: 0.9;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .profile_header_content {
+        padding: 20px;
+    }
+
+    .quitbutton {
+        width: 100%;
+        height: 100%;
+        padding-top: 10px;
+        padding-bottom: -30px;
+        z-index: 3;
+        text-align: center;
+        color: white;
+    }
+
+    .text_containers {
+        width: 100%;
+        padding: 5px 0px 5px 0px;
+        color: white;
+    }
+
+    .text_containers_smaller {
+        width: 100%;
+        padding: 2px 0px 2px 20px;
+        color: white;
+    }
+
+    .rightSide_content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .EditTopBar {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .editprofile_Header_container {
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: normal;
+        align-items: baseline;
+    }
+
+    .profile_text_header_containor {
+        padding: 0px 5px 0px 5px;
+    }
+
+    .profile_text_cover {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.40);
+        border-radius: 2px;
+    }
+
+    .profile_text_cover h6 {
+        padding: 2px 0px 4px 0px;
+    }
+
+    .profile_content_cover {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.40);
+        border-radius: 2px;
+    }
+
+    .music-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 2% 5% 2% 5%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .Edit_Profile_About_Container{
+        float: left;
+    }
+    .Edit_Profile_About_Container h6{
+        color: white;
+        letter-spacing: 4px;
+    }
+    .Edit_Profile_About_Container p{
+        color: white;
+    }
+    .about-container {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    }
+    .Profile_form_container {
+        padding-left: 20px;
+        padding-right: 50%;
+    }
+    .form-control{
+        color:white;
+    }
+</style>
+
+
+
+<div class="container">
+
+    <div class="profile_background"></div>
+    <br />
+
+    <div class="">
+        <div class="about-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="profile_header_content ">
+                        <div class="media">
+                            <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt="" style="height: 100px" />
+                            <div class="EditTopBar">
+                                <div class="text_containers_smaller">
+                                    <div class="editprofile_Header_container">
+                                        <h5 class="mt-0">@Model.Display_name</h5> <p style="font-size: 8px; color: lightgrey; padding: 0px 5px 0px 5px; align-items: center">>></p> <p style="font-size: 10px"> Edit Profile</p> <p style="font-size: 8px; color: lightgrey; padding: 0px 5px 0px 5px; align-items: center">>></p> <p style="font-size: 10px"> General</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Edit_Profile_About_Container" style="float: right; width: 100%; padding: 5px 0px 5px 0px">
+            <p></p>   
+        </div>
+
+        <br />
+
+        <div class="about-container">
+            <div class="row">
+                <div class="col-4" style="text-align: center; color: white">
+
+                    <br />
+
+                    <div class="profile_text_header_containor">
+                        <a type="button" class="btn btn-outline-light btn-lg btn-block" href="#" role="button">General</a>
+                        <div class="profile_text_cover">
+                            <h6>Account Information</h6>
+                        </div>
+                    </div>
+
+                    @if (Model.UserCheck == false)
+                    {
+                        // don't display for Admins
+                    }
+                    else if (Model.UserCheck == true) // for member
+                    {
+                        <br />
+
+                        <div class="profile_text_header_containor">
+                            <a type="button" class="btn btn-outline-light btn-lg btn-block" href="#" role="button">Credentials</a>
+                            <div class="profile_text_cover">
+                                <h6>Card Number</h6>
+                            </div>
+                        </div>
+                    }
+
+                    <br />
+
+                    <div class="profile_text_header_containor">
+                        <a type="button" class="btn btn-outline-light btn-lg btn-block" href="#" role="button">Password</a>
+                        <div class="profile_text_cover">
+                            <h6>Change You Password</h6>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="profile_text_header_containor">
+                        <a type="button" class="btn btn-outline-light btn-lg btn-block" href="#" role="button">Avatar</a>
+                        <div class="profile_text_cover">
+                            <h6>Profile Picture</h6>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-8" style="color: white">
+
+                    <br />
+
+                    <div class="Edit_Profile_About_Container">
+                        <h6>ABOUT</h6>
+                        <p>Set your profile name and details. Providing additional information like description can help friends find you on Listical.</p>
+                        <br />
+                        <p>Your profile name and avatar present your trough Listical, and must be appropriate for all audiences. Please contact us for more details.</p>
+                    </div>
+
+                    <div class="profile_form">
+                        <form method="post">
+                            <h6>GENERAL</h6>
+                            <hr />
+                            <div class="Profile_form_container">
+                                <div class="form-group">
+                                    <label class="control-label">Profile Name</label>
+                                    @if (Model.UserCheck == false) // for admin
+                                    {
+                                        <input type="text" asp-for="AdminRecords.AdminUserName" class="form-control" style="background-color: transparent" />
+                                    }
+                                    else if (Model.UserCheck == true) // for member
+                                    {
+                                        <input type="text" asp-for="UserRecords.UserName" class="form-control" style="background-color: transparent" />
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Email Address</label>
+                                    @if (Model.UserCheck == false) // for admin
+                                    {
+                                        <input type="text" asp-for="AdminRecords.AdminEmail" class="form-control" style="background-color: rgba(255, 255, 255, 0.20)" readonly/> //can't change !
+                                    }
+                                    else if (Model.UserCheck == true) // for member
+                                    {
+                                        <input type="text" asp-for="UserRecords.UserEmail" class="form-control" style="background-color: rgba(255, 255, 255, 0.20)" readonly/> // can't !
+                                    }
+                                </div>
+                            </div>
+
+                            @if (Model.UserCheck == false)
+                            {
+                                // Admins don't have credit card informaiton
+                            }
+                            else if (Model.UserCheck == true)
+                            {
+                                <h6>CREDENTIALS</h6>
+                                <hr />
+                                <div class="Profile_form_container">
+                                    <div class="form-group">
+                                        <label asp-for="UserRecords.UserCard" class="control-label"></label>
+                                        <input type="text" asp-for="UserRecords.UserCard" class="form-control" style="background-color: transparent" />
+                                    </div>
+                                </div>
+                            }
+                            <h6>ACCOUNT SECURITY</h6>
+                            <hr />
+                            <div class="Profile_form_container">
+                                <div class="form-group">
+
+                                    @if (Model.UserCheck == false) // for admin
+                                    {
+                                        <label asp-for="AdminRecords.AdminPassword" class="control-label"></label>
+                                        <input type="text" asp-for="AdminRecords.AdminPassword" class="form-control" style="background-color: transparent" />
+                                    }
+                                    else if (Model.UserCheck == true) // for member
+                                    {
+                                        <label asp-for="UserRecords.UserPassword" class="control-label"></label>
+                                        <input type="text" asp-for="UserRecords.UserPassword" class="form-control" style="background-color: transparent" />
+                                    }
+                                </div>
+                            </div>
+                            <h6>MEMBERSHIP DETAILS</h6>
+                            <hr />
+                            <div class="Profile_form_container">
+                                <div class="form-group">
+                                    <label class="control-label">Currently</label>
+                                    @if (Model.UserCheck == false) // for admin
+                                    {
+                                        <input type="text"  value="Admin" class="form-control" style="background-color: rgba(255, 255, 255, 0.20)" readonly/> // make untoucable
+                                    }
+                                    else if (Model.UserCheck == true) // for member
+                                    {
+                                        if (Model.UserRecords.MembershipId == 2)
+                                        {
+                                            <input type="text" value="Premium" class="form-control" style="background-color: rgba(255, 255, 255, 0.20)" readonly/>// make disabled
+                                        }
+                                        else
+                                        {
+                                            <input type="text" value="Free" class="form-control" style="background-color: rgba(255, 255, 255, 0.20)" readonly/>// make disabled
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <h6>SUMMARY</h6>
+                            <hr />
+                            <div class="Profile_form_container">
+                                <div class="form-group">
+                                    <label class="control-label">Provide some information about yourself</label>
+                                    <textarea class="form-control" style="background-color: transparent" aria-label="With textarea">Your description is empty! to add details press on "Edit Profile"</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" asp-for="UserRecords.MemberID" />
+                                <input type="hidden" asp-for="AdminRecords.AdminID" />
+                                @if (Model.UserCheck == true)
+                                {
+                                    <input type="hidden" asp-for="UserCheck" value="true" />
+                                }
+                                else
+                                {
+                                    <input type="hidden" asp-for="UserCheck" value="false" />
+                                }
+                                <input type="submit" vlue="Save" class="btn btn-danger" />
+                                <a class="btn btn-primary" asp-page="/users/useraccount">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -29,11 +29,13 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="/Login/AdminLogin">Admin Login</a>
                                 <a class="dropdown-item" href="/Login/UserLogin">Member Login</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/users/createuser">Member Register</a>
                             </div>
                         </li>
                     </ul>
                     <div class="User_Informaiton ">
-                        <img src="https://www.bemyguestcastelldefels.com/images/user.png" alt="" style="height: 25px" /> <! -- We must use the web to load the picture because the picture won't load on all pages-->
+                        <a href="/Users/UserAccount"><img src="https://www.bemyguestcastelldefels.com/images/user.png" alt="" style="height: 25px" /> <! -- We must use the web to load the picture because the picture won't load on all pages--></a>
                     </div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -84,7 +86,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: white">
         <div class="container">
             &copy; 2020 - Listical - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>

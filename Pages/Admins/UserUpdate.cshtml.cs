@@ -65,6 +65,7 @@ namespace Group_Project.Pages.Admins
                     UserRecords.UserEmail = reader.GetString(2);
                     UserRecords.UserCard = reader.GetString(3);
                     UserRecords.UserPassword = reader.GetString(4);
+                    UserRecords.MembershipId = reader.GetInt32(5);
                 }
 
             }
@@ -86,15 +87,23 @@ namespace Group_Project.Pages.Admins
             using (SqlCommand command = new SqlCommand())
             {
                 command.Connection = conn;
-                command.CommandText = "UPDATE Userz SET UserName = @UserName, UserEmail = @UserEmail, UserCardNumber = @UserCard, UserPassword = @UserPassword WHERE UserId = @MemberID";
+                command.CommandText = "UPDATE Userz SET UserName = @UserName, UserEmail = @UserEmail, UserCardNumber = @UserCard, UserPassword = @UserPassword, MembershipId = @MembershipId WHERE UserId = @MemberID";
 
                 command.Parameters.AddWithValue("@MemberID", UserRecords.MemberID);
                 command.Parameters.AddWithValue("@UserName", UserRecords.UserName);
                 command.Parameters.AddWithValue("@UserEmail", UserRecords.UserEmail);
                 command.Parameters.AddWithValue("@UserCard", UserRecords.UserCard);
                 command.Parameters.AddWithValue("@UserPassword", UserRecords.UserPassword);
-
-                command.ExecuteNonQuery();
+                command.Parameters.AddWithValue("@MembershipId", UserRecords.MembershipId);
+                if (UserRecords.MembershipId > 2 || UserRecords.MembershipId < 1)
+                {
+                    return Page();
+                }
+                else
+                {
+                    command.ExecuteNonQuery();
+                }
+                
             }
 
             conn.Close();

@@ -16,8 +16,12 @@ namespace Group_Project.Pages.Login
 
         public string Message { get; set; }
 
-        public string SessionID;
+        public int LoginUserMembership;
+        public const string SessionKeyName4 = "LoginUserid";
 
+        public string SessionID;
+        public const string SessionKeyName3 = "sessionID";
+        public const string SessionKeyName5 = "AdminsessionID";
         public IActionResult OnPost()
         {
             DatabaseConnection.Database_Connection dbstring = new DatabaseConnection.Database_Connection(); //creating an object from the class
@@ -71,12 +75,12 @@ namespace Group_Project.Pages.Login
 
                 if (User.MembershipId == 1)
                 {
-                    return RedirectToPage("/Users/free");
+                    return RedirectToPage("/Users/UserAccount");
                 }
                 else
                 {
                     
-                    return RedirectToPage("/Users/premium");
+                    return RedirectToPage("/Users/UserAccount");
                 }
 
             }
@@ -88,8 +92,38 @@ namespace Group_Project.Pages.Login
 
 
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            // --------------------- VALIDATE SESSION ---------------------
+
+            SessionID = HttpContext.Session.GetString(SessionKeyName5);
+
+            if (!string.IsNullOrEmpty(SessionID))
+            {
+                return RedirectToPage("/Users/UserAccount");
+            }
+            else
+            {
+                SessionID = HttpContext.Session.GetString(SessionKeyName3);
+
+                if (!string.IsNullOrEmpty(SessionID))
+                {
+
+                    LoginUserMembership = (int)HttpContext.Session.GetInt32(SessionKeyName4);
+                    if (LoginUserMembership == 2)
+                    {
+                        return RedirectToPage("/Users/Premium");
+                    }
+                    else if (LoginUserMembership == 1)
+                    {
+                        return RedirectToPage("/Users/Free");
+                    }
+                
+                }
+            }
+            // --------------------- VALIDATE SESSION ---------------------
+
+            return Page();
         }
     }
 }

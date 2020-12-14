@@ -1,0 +1,110 @@
+﻿@page
+@model Group_Project.Pages.Users.CreateUserModel
+@{
+}
+
+<style>
+
+    .homepagebg {
+        background: url(../Images/index_background.jpg);
+        height: 800px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .about-container {
+        width: 280px;
+        height: 400px;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        position: relative;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .admin-text {
+        font-size: 20px;
+        animation: text-bottom 5s 1;
+        padding: 13px;
+    }
+
+    .Admin-bottom-text {
+        font-size: 10px;
+        padding: 10px;
+        float: right;
+    }
+</style>
+
+
+<div class="text-center">
+    <div class="homepagebg">
+
+        <div class="col welcome-text">
+
+            <img src="../Images/Login_people.png" alt="..." style="height: 40px; padding-bottom: 5px">
+
+            <div class="about-container">
+
+                <div class="admin-text">MEMBER REGISTER</div>
+
+                <form method="post" class="row" style="padding-left: 20px; padding-right: 20px">
+
+                    <div style="width: 100%; position: relative; justify-content: space-evenly; align-items: center">
+
+                        <input type="text" asp-for="Usersdetail.UserName" class="form-control mb-2 mr-sm-2" placeholder="Username">
+
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">@@</div>
+                            </div>
+                            <input type="text" asp-for="Usersdetail.UserEmail" class="form-control" placeholder="Email Address">
+                        </div>
+                        
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"onclick="messagePost()"><a href="">?</a></div>
+                            </div>
+                            <input type="text" asp-for="Usersdetail.UserCard" class="form-control" placeholder="Card Number">
+                        </div>
+
+                        <input type="password" asp-for="Usersdetail.UserPassword" class="form-control mb-2 mr-sm-2" placeholder="Password">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Membership</label>
+                            </div>
+                            <select asp-for="Usersdetail.MembershipId" class="custom-select" id="inputGroupSelect01">
+                                <option selected value="1">Basic</option>
+                                <option value="2">Premium</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-light btn-lg btn-block">Register</button>
+
+                    <script>
+                        function messagePost() {
+                            alert("Card number is mandatory only when you select premium membership!");
+                        }
+                    </script>
+                </form>
+
+                <div class="Admin-bottom-text"><a href="/login/Userlogin" class="text-white">Already joined?</a></div>
+
+                <div>
+                    <p style="color: white">@Model.Message</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

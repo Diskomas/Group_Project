@@ -11,13 +11,15 @@ namespace Group_Project.Pages.Login
 {
     public class AdminLoginModel : PageModel
     {
+
         [BindProperty]
         public Models.Admins Admin { get; set; }
 
         public string Message { get; set; }
 
         public string SessionID;
-
+        public const string SessionKeyName3 = "AdminsessionID";
+        public const string SessionKeyName4 = "sessionID";
         public IActionResult OnPost()
         {
             DatabaseConnection.Database_Connection dbstring = new DatabaseConnection.Database_Connection(); //creating an object from the class
@@ -25,10 +27,6 @@ namespace Group_Project.Pages.Login
             Console.WriteLine(DbConnection);
             SqlConnection conn = new SqlConnection(DbConnection);
             conn.Open();
-
-            Console.WriteLine(Admin.AdminUserName);
-            Console.WriteLine(Admin.AdminPassword);
-
 
             using (SqlCommand command = new SqlCommand())
             {
@@ -66,17 +64,7 @@ namespace Group_Project.Pages.Login
                 HttpContext.Session.SetString("LoginAdminemail", Admin.AdminEmail);
                 HttpContext.Session.SetString("LoginAdminusername", Admin.AdminUserName);
 
-                return RedirectToPage("/Admins/AdminView");
-               // This might be applied later
-
-               // if (User.Role == "User")
-               // {
-               //     return RedirectToPage("/UserPages/UserIndex");
-               // }
-               // else
-               // {
-               //     return RedirectToPage("/AdminPages/AdminIndex");
-               // }
+                return RedirectToPage("/users/UserAccount");
 
 
             }
@@ -89,8 +77,25 @@ namespace Group_Project.Pages.Login
 
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            // --------------------- VALIDATE SESSION ---------------------
+            SessionID = HttpContext.Session.GetString(SessionKeyName4);
+            if (!string.IsNullOrEmpty(SessionID))
+            {
+                return RedirectToPage("/users/UserAccount");
+            }
+            else
+            {
+                SessionID = HttpContext.Session.GetString(SessionKeyName3);
+
+                if (!string.IsNullOrEmpty(SessionID))
+                {
+                    return RedirectToPage("/Admins/AdminView");
+                }  
+            }
+            // --------------------- VALIDATE SESSION ---------------------
+            return Page();
         }
     }
 }

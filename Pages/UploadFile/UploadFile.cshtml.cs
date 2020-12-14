@@ -31,12 +31,12 @@ namespace Group_Project.Pages.UploadFile
 
         public IActionResult OnPost()
         {
-            var FileToUpload = Path.Combine(_env.WebRootPath, "Files", StdFile.FileName);//this variable consists of file path
+            var FileToUpload = Path.Combine(_env.WebRootPath, "Profile_Files", StdFile.FileName);
             Console.WriteLine("File Name : " + FileToUpload);
 
             using (var FStream = new FileStream(FileToUpload, FileMode.Create))
             {
-                StdFile.CopyTo(FStream);//copy the file into FStream variable
+                StdFile.CopyTo(FStream);
             }
 
             return RedirectToPage("/index");

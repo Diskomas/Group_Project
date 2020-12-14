@@ -1,0 +1,34 @@
+﻿@page
+@model Group_Project.Pages.Admins.MembershipDeleteModel
+@{
+}
+
+
+<div class="container">
+    <h1 class="text-center pt-2 text-secondary">MEMBERSHIP "@Model.MembershipRecords.MembershipName.ToUpper()" RECORD DELETE</h1>
+    <h3 class="text-center pt-2 text-danger">Are you sure want to delete "@Model.MembershipRecords.MembershipName" membership?</h3>
+
+
+    <form method="post">
+
+        <div class="form-group">
+            <label asp-for="MembershipRecords.MembershipID"></label>
+            <input class="form-control" asp-for="MembershipRecords.MembershipID" placeholder="@Model.MembershipRecords.MembershipID" readonly>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MembershipRecords.MembershipName"></label>
+            <input class="form-control" asp-for="MembershipRecords.MembershipName" placeholder="@Model.MembershipRecords.MembershipName" readonly>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MembershipRecords.MembershipPrice"></label>
+            <input class="form-control" asp-for="MembershipRecords.MembershipPrice" placeholder="@Model.MembershipRecords.MembershipPrice" readonly>
+        </div>
+
+        <input type="hidden" asp-for="MembershipRecords.MembershipID" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-primary" asp-page="/Admins/AdminView">Cancel</a>
+
+    </form>
+</div>

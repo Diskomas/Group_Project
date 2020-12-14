@@ -7,36 +7,32 @@
     <h1 class="text-center pt-2 text-secondary">ADMIN  @Model.AdminRecord.AdminUserName.ToUpper() RECORD DELETE</h1>
     <h3 class="text-center pt-2 text-danger">Are you sure want to delete @Model.AdminRecord.AdminUserName's record?</h3>
 
-    <div class="table-active">
 
-        <div>
+    <form method="post">
+
+        <div class="form-group">
             <label asp-for="AdminRecord.AdminID"></label>
-            <span> : </span>
-            @Model.AdminRecord.AdminID
+            <input class="form-control" asp-for="AdminRecord.AdminID" placeholder="@Model.AdminRecord.AdminID" readonly>
         </div>
-        <div>
-            <label asp-for="AdminRecord.AdminUserName"></label>
-            <span> : </span>
-            @Model.AdminRecord.AdminUserName
-        </div>
-        <div>
-            <label asp-for="AdminRecord.AdminEmail"></label>
-            <span> : </span>
-            @Model.AdminRecord.AdminEmail
-        </div>
-        <div>
-            <label asp-for="AdminRecord.AdminPassword"></label>
-            <span> : </span>
-            @Model.AdminRecord.AdminPassword
-        </div>
-    </div>
-    <br />
-    <div>
-        <form method="post">
-            <input type="hidden" asp-for="AdminRecord.AdminID" />
-            <input type="submit" value="Delete" class="btn btn-danger" />
-            <a class="btn btn-primary" asp-page="/Admins/AdminView">Cancel</a>
-        </form>
-    </div>
 
+        <div class="form-group">
+            <label asp-for="AdminRecord.AdminUserName"></label>
+            <input class="form-control" asp-for="AdminRecord.AdminUserName" placeholder="@Model.AdminRecord.AdminUserName" readonly>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AdminRecord.AdminEmail"></label>
+            <input class="form-control" asp-for="AdminRecord.AdminEmail" placeholder="@Model.AdminRecord.AdminEmail" readonly>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AdminRecord.AdminPassword"></label>
+            <input class="form-control" asp-for="AdminRecord.AdminPassword" placeholder="@Model.AdminRecord.AdminPassword" readonly>
+        </div>
+
+        <input type="hidden" asp-for="AdminRecord.AdminID" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-primary" asp-page="/Admins/AdminView">Cancel</a>
+
+    </form>
 </div>

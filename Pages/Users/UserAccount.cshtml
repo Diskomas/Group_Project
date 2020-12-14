@@ -1,0 +1,261 @@
+﻿@page
+@model Group_Project.Pages.Users.UserAccountModel
+@{
+}
+
+
+
+
+<style>
+
+    .Profile_header {
+        width: 100%;
+        height: 100%;
+        background: url(../Images/Profile_Background_transparent.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .profile_background {
+        background: url(../Images/index_background.jpg);
+        background-size: 100%;
+        opacity: 0.9;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+    .profile_header_content {
+        padding: 20px;
+    }
+    .quitbutton {
+        width: 100%;
+        height: 100%;
+        padding-top: 10px;
+        margin-bottom: -1px;
+        z-index: 3;
+        text-align: center;
+        color: white;
+    }
+    .text_containers {
+        width: 100%;
+        padding: 5px 0px 5px 0px;
+        color: white;
+    }
+    .text_containers_smaller {
+        width: 100%;
+        padding: 2px 0px 2px 20px;
+        color: white;
+    }
+    .rightSide_content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile_text_header_containor{
+        padding: 0px 5px 0px 5px;
+    }
+    .profile_text_cover {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.40);
+        border-radius: 2px;
+    }
+    .profile_text_cover h6{
+        padding: 2px 0px 4px 0px;
+    }
+    .profile_content_cover {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+    }
+    .music-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 2% 5% 2% 5%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .about-container {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    }
+</style>
+
+
+<div class="container">
+
+    <div class="profile_background"></div>
+
+    <br />
+
+    <div class="">
+
+        <div class="row">
+            <div class="col-8">
+
+            </div>
+            <div class="col-2">
+                <div class="quitbutton">
+                    @if (!string.IsNullOrEmpty(Model.AdminSessionID))
+                     { 
+                        <a class="btn btn-outline-light" href="/admins/adminview" role="button">Admin Page</a>
+                     }
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="quitbutton">
+
+                    <form method="post">
+                        <button type="submit" class="btn btn-outline-light"><img src="https://www.clker.com/cliparts/0/Z/N/Y/w/N/power-button-md.png" alt="" style="height: 15px" /> Log out</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="about-container">
+            <div class="row">
+                <div class="col-9">
+                    <div class="profile_header_content">
+                        <div class="media">
+                            <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg" alt="" style="height: 150px" />
+                            <div class="media-body">
+
+                                <div class="text_containers_smaller">
+                                    <h5 class="mt-0">@Model.Display_name</h5>
+                                </div>
+                                <div class="text_containers_smaller" style="color: white">
+                                    Email addesss : @Model.Display_email
+                                </div>
+                                <div class="text_containers_smaller" style="color: white">
+                                    @if (Model.LoginUserMembership == 0)
+                                    {
+                                        <p>Membership : Admin</p>
+                                    }
+                                    else if (Model.LoginUserMembership == 1)
+                                    {
+                                        <p>Membership : Basic</p>
+                                    }
+                                    else if (Model.LoginUserMembership == 2)
+                                    {
+                                        <p>Membership : Premium</p>
+                                    }
+                                </div>
+                                <div class="text_containers_smaller" style="color: white">
+                                    Your description is empty! to add details press on "Edit Profile"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="rightSide_content">
+                        <div class="text_containers">
+                            Level
+                            <img src="https://webstockreview.net/images/1-clipart-circle-5.png" alt="" style="height: 20px" />
+
+                        </div>
+                        <div class="text_containers">
+                            -
+                        </div>
+                        <div class="text_containers">
+                            <a type="submit" class="btn btn-outline-light" href="/users/editprofile" style="color: white">Edit Profile <span class="badge badge-light">4</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="about-container">
+            <div class="row">
+                <div class="col-8" style="text-align: center; color: white">
+                    <div class="profile_text_header_containor">
+                        <div class="profile_text_cover">
+                            @if (Model.UserCheck)
+                            {
+                                <h6>My Playlists</h6>
+                            }
+                            else if (!Model.UserCheck)
+                            {
+                                <h6>Available Playlists</h6>
+                            }
+                        </div>
+                    </div>
+                    <div class="profile_text_header_containor">
+                        <div class="profile_content_cover music-container">
+                            @if (Model.UserCheck)
+                            {
+                                if (Model.UserRecords.MembershipId == 1)
+                                {
+                                    <div style="padding: 5px">
+                                        <a href="/users/free#House"><img src="https://soundplate.com/wp-content/uploads/aa401f29b358244a55f846b87ca94518286b39b7.jpeg" alt="" style="height: 300px; width: 300px" /></a>
+                                    </div>
+                                    <div style="padding: 5px">
+                                        <a href="/users/free#MoodBooster"><img src="https://1.bp.blogspot.com/-jUGMGyLh9dk/XoPVp8ofOOI/AAAAAAAAIQE/GukvzQMrwesRw1gklEvij3kjx-j7clczQCLcBGAsYHQ/s1600/IMG_7821.jpg" alt="" style="height: 300px; width: 300px" /></a>
+                                    </div>
+                                }
+                                else if (Model.UserRecords.MembershipId == 2)
+                                {
+                                    <div style="padding: 5px">
+                                        <a href="/users/premium#House"><img src="https://soundplate.com/wp-content/uploads/aa401f29b358244a55f846b87ca94518286b39b7.jpeg" alt="" style="height: 300px; width: 300px" /></a>
+                                    </div>
+                                    <div style="padding: 5px">
+                                        <a href="/users/premium#MoodBooster"><img src="https://1.bp.blogspot.com/-jUGMGyLh9dk/XoPVp8ofOOI/AAAAAAAAIQE/GukvzQMrwesRw1gklEvij3kjx-j7clczQCLcBGAsYHQ/s1600/IMG_7821.jpg" alt="" style="height: 300px; width: 300px" /></a>
+                                    </div>
+                                    <div style="padding: 5px">
+                                        <a href="/users/premium#TopUk"><img src="../Images/UK_top_3.jpeg" alt="" style="height: 300px; width: 300px" /></a>
+
+                                    </div>
+                                    <div style="padding: 5px">
+                                        <a href="/users/premium#Eurovision"><img src="https://i.scdn.co/image/ab67706f00000003d5b5ab144971ab8eaf9c7033" alt="" style="height: 300px; width: 300px" /></a>
+                                    </div>
+                                }
+                            }
+                            else if (!Model.UserCheck)
+                            {
+                                <div style="padding: 5px">
+                                    <a href="/users/premium#House"><img src="https://soundplate.com/wp-content/uploads/aa401f29b358244a55f846b87ca94518286b39b7.jpeg" alt="" style="height: 300px; width: 300px" /></a>
+                                </div>
+                                <div style="padding: 5px">
+                                    <a href="/users/premium#MoodBooster"><img src="https://1.bp.blogspot.com/-jUGMGyLh9dk/XoPVp8ofOOI/AAAAAAAAIQE/GukvzQMrwesRw1gklEvij3kjx-j7clczQCLcBGAsYHQ/s1600/IMG_7821.jpg" alt="" style="height: 300px; width: 300px" /></a>
+                                </div>
+                                <div style="padding: 5px">
+                                    <a href="/users/premium#TopUk"><img src="../Images/UK_top_3.jpeg" alt="" style="height: 300px; width: 300px" /></a>
+
+                                </div>
+                                <div style="padding: 5px">
+                                    <a href="/users/premium#Eurovision"><img src="https://i.scdn.co/image/ab67706f00000003d5b5ab144971ab8eaf9c7033" alt="" style="height: 300px; width: 300px" /></a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4" style="text-align: center; color: white">
+                    <div class="profile_text_header_containor">
+                        <div class="profile_text_cover">
+                            <h6>Other actions</h6>
+                        </div>
+                        @if (!Model.UserCheck)
+                         {
+                            <h6>Premium Page</h6>
+                         }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

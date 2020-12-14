@@ -1,0 +1,34 @@
+﻿@page
+@model Group_Project.Pages.Admins.MembershipUpdateModel
+@{
+}
+
+<div class="container">
+
+    <h1 class="text-center pt-2 text-secondary">MEMBERSHIP "@Model.MembershipRecords.MembershipName.ToUpper()" UPDATE</h1>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label asp-for="MembershipRecords.MembershipID"></label>
+            <input class="form-control" asp-for="MembershipRecords.MembershipID" placeholder="@Model.MembershipRecords.MembershipID" readonly>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MembershipRecords.MembershipName" class="control-label"></label>
+            <input type="text" asp-for="MembershipRecords.MembershipName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MembershipRecords.MembershipPrice" class="control-label"></label>
+            <input type="text" asp-for="MembershipRecords.MembershipPrice" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" asp-for="MembershipRecords.MembershipID" />
+            <input type="submit" vlue="Update" class="btn btn-danger" />
+            <a class="btn btn-primary" asp-page="/Admins/AdminView">Cancel</a>
+        </div>
+    </form>
+
+</div>

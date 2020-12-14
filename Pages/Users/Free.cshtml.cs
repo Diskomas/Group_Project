@@ -25,6 +25,9 @@ namespace Group_Project.Pages.Users
         public int LoginUserMembership;
         public const string SessionKeyName4 = "LoginUserusername";
 
+        public string AdminSessionID;
+        public const string SessionKeyName5 = "AdminsessionID";
+
         // --------------------- VALIDATE SESSION ---------------------
         public IActionResult OnGet()
         {
@@ -32,6 +35,12 @@ namespace Group_Project.Pages.Users
             LoginUseremail = HttpContext.Session.GetString(SessionKeyName1);
             LoginUserusername = HttpContext.Session.GetString(SessionKeyName2);
             SessionID = HttpContext.Session.GetString(SessionKeyName3);
+
+            AdminSessionID = HttpContext.Session.GetString(SessionKeyName5);
+            if (!string.IsNullOrEmpty(AdminSessionID))
+            {
+                return Page();
+            }
 
             if (string.IsNullOrEmpty(LoginUseremail) && string.IsNullOrEmpty(LoginUserusername) && string.IsNullOrEmpty(SessionID))
             {
